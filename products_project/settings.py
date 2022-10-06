@@ -112,6 +112,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+USE_TZ=False
 
 try:
     from products_project.local_settings import *
