@@ -17,14 +17,14 @@ def review_list(request):
         serializer = ReviewSerializer(reviews, many=True)
         return Response(serializer.data)
     elif request.method == 'POST':
-        serializer = Review(data=request.data)
+        serializer = ReviewSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.errors, status=status.HTTP_201_CREATED)
 
 @api_view(['GET', 'PUT', 'DELETE'])
 def review_detail(request, pk):
-    review = get_object_or_404(ReviewSerializer, pk=pk)
+    review = get_object_or_404(Review, pk=pk)
     if request.method == 'GET':
         serializer = ReviewSerializer(review)
         return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
