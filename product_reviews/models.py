@@ -10,4 +10,4 @@ class Review(models.Model):
     review_text = models.CharField(max_length=255)
     rating = models.IntegerField()
     name = models.CharField(max_length=255)
-    product = models.ForeignKey(Product, on_delete=models.PROTECT)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
